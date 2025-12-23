@@ -8,6 +8,7 @@ import campusLifeRouter from "./campusLifeRouter";
 import informationRouter from "./informationRouter";
 import accountRouter from "./accountRouter";
 import adminRouter from "./adminRouter";
+import RealTimeSensor from "../components/RealTimeSensor";
 
 const { createBrowserRouter } = require("react-router-dom");
 const Loading = <div>Loading......</div>;
@@ -54,12 +55,16 @@ const root = createBrowserRouter([
     // element: <Suspense fallback={Loading}><Basiclayout children={<Main />}></Basiclayout></Suspense>,
     children: accountRouter(),
   },
-    {
+  {
     path: "admin",
     // element: <Suspense fallback={Loading}><Basiclayout children={<Main />}></Basiclayout></Suspense>,
     children: adminRouter(),
   },
-  
+  {
+    path: "v",
+    // element: <Suspense fallback={Loading}><Basiclayout children={<Main />}></Basiclayout></Suspense>,
+    element: <RealTimeSensor />,
+  },
 ]);
 
 export default root;
